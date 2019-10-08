@@ -1,0 +1,51 @@
+﻿@using TimmPractice.Models.ViewModel
+@model Lesson7DayListViewModel
+
+@{
+    ViewBag.Title = "Lesson7DayList";
+    Layout = null;
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>    @*引入JQuery功能*@
+
+
+<script>
+    $(function () {
+        // 依據薪水大小變色( JQuery -> CSS )
+        var table = document.getElementById("#table");
+        console.log(table.rows[1].cells[1].innerHTML)
+        @*
+        for (i = 0; i < ("#table").length; i++) {
+            if (table.rows[i].cells[1].innerHTML > 15000) table.rows[i].cells[1].css({ "background-color": "yellow" })
+            else table.rows[i].cells[1].css({ "background-color": "green" })
+        }
+            *@
+
+
+
+    });
+
+</script>
+
+<h2>Lesson7DayList</h2>
+
+<body>
+    Hello @Model.UserName
+    <hr />
+    <div>
+        <table style="border:3px #cccccc solid;" cellpadding="10" border='1' id="table">
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (Lesson7DayViewModel i in Model.Employees)
+            {
+                <tr>
+                    <td>@i.EmployeeName</td>
+                    <td>@i.Salary</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+
